@@ -15,11 +15,7 @@ if (!validateUser()) {
     }
     exit();
 }
-<<<<<<< HEAD
 if ($_SESSION['email'] == null) {
-=======
-if ($_SESSION['usr'] == null) {
->>>>>>> 3e49d3f5cb911c6c1a63f6de86002f7edbbc0ae0
 
     header("Location: Expire.php", false);
 }
@@ -155,15 +151,9 @@ if (isset($_GET['logoff'])) {
                         <div id="alert-desc2" class="alert-desc" style="display:none">
                             <a href="CRAdmin.php">Lab Engineer</a>
                         </div>
-<<<<<<< HEAD
                         <!--<div id="alert-desc3" class="alert-desc" style="display:none">
                             <a href="../../RAL-User/SVL6.1/EndUser.php">End User</a>
                         </div>-->
-=======
-                        <div id="alert-desc3" class="alert-desc" style="display:none">
-                            <a href="../../RAL-User/SVL6.1/EndUser.php">End User</a>
-                        </div>
->>>>>>> 3e49d3f5cb911c6c1a63f6de86002f7edbbc0ae0
                         <div id="alert-desc4" class="alert-desc" style="display:none">
                             <a href="ProjectAdmin.php">ISVe Project Admin</a>
                         </div>
@@ -296,11 +286,7 @@ if (isset($_GET['logoff'])) {
 
             <div id="footer">
                 <p>&nbsp;</p>
-<<<<<<< HEAD
                 <div id="currentuser" style="display:none;"><?php echo $_SESSION['email']; ?></div>
-=======
-                <div id="currentuser" style="display:none;"><?php echo $_SESSION['usr']; ?></div>
->>>>>>> 3e49d3f5cb911c6c1a63f6de86002f7edbbc0ae0
                 <input id="instancestatus" style="display:none;"></input>
             </div>
         </div>

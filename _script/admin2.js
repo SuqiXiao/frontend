@@ -450,13 +450,8 @@ function getUserName() {
     currentuser = $("#currentuser").html();
     $.ajax({
         type: 'GET',
-<<<<<<< HEAD
         // async: 'false',
         // timeout: 5000,
-=======
-       // async: 'false',
-       // timeout: 5000,
->>>>>>> 3e49d3f5cb911c6c1a63f6de86002f7edbbc0ae0
         url: 'php/api.php',
         data: {oper: "getUserName", id: currentuser},
         dataType: 'json',
@@ -835,19 +830,11 @@ function requestInstances() {
 
     var currentuser;
     currentuser = $("#currentuser").html();
-<<<<<<< HEAD
     showAlert(FUNCTION.GET_PROJECT, alertType.SPLASH, null);
     $.ajax({
         type: 'GET',
         // async: 'true',
         // timeout: 5000,
-=======
-       showAlert(FUNCTION.GET_PROJECT, alertType.SPLASH, null);
-    $.ajax({
-        type: 'GET',
-       // async: 'true',
-       // timeout: 5000,
->>>>>>> 3e49d3f5cb911c6c1a63f6de86002f7edbbc0ae0
         url: 'php/api.php',
         cache: false,
         data: {oper: "getAllProjectList", id: currentuser},
@@ -855,11 +842,7 @@ function requestInstances() {
         // contentType: 'application/json',
         success: function(data) {
             //console.log(instances);
-<<<<<<< HEAD
             if (data['http']['http_message'].toString() != "OK") {
-=======
-         if (data['http']['http_message'].toString() != "OK") {
->>>>>>> 3e49d3f5cb911c6c1a63f6de86002f7edbbc0ae0
                 //alert('Get project list action is \"' + data['http']['http_message'].toString() + '\"\n Didn\'t get data');
                 showAlert(FUNCTION.GET_PROJECT, alertType.FAILURE, null);
             }
@@ -867,11 +850,7 @@ function requestInstances() {
                 requestInstancesSuccess(data['data']);
         },
         error: function(xhr, status, error) {
-<<<<<<< HEAD
             showAlert(FUNCTION.GET_PROJECT, alertType.FAILURE, null);
-=======
-           showAlert(FUNCTION.GET_PROJECT, alertType.FAILURE, null);
->>>>>>> 3e49d3f5cb911c6c1a63f6de86002f7edbbc0ae0
         },
         complete: function(xhr, status) {
         }
@@ -1086,13 +1065,8 @@ function getInstanceStatus(instance, instanceID) {
     currentuser = $("#currentuser").html();
     $.ajax({
         type: 'GET',
-<<<<<<< HEAD
         //   async: true,
         //timeout: 5000,
-=======
-     //   async: true,
-       //timeout: 5000,
->>>>>>> 3e49d3f5cb911c6c1a63f6de86002f7edbbc0ae0
         data: {oper: 'getProjectStatus', projectId: instanceID, id: currentuser},
         url: 'php/api.php',
         dataType: 'json',
@@ -1537,11 +1511,7 @@ function requestProjectDetails(project_id) {
     else {
         $.ajax({
             type: 'GET',
-<<<<<<< HEAD
             // async: 'false',
-=======
-           // async: 'false',
->>>>>>> 3e49d3f5cb911c6c1a63f6de86002f7edbbc0ae0
             //timeout: 5000,
             data: {oper: 'getProjectDetail', projectId: project_id, id: currentuser},
             dataType: 'json',
@@ -1564,7 +1534,6 @@ function requestProjectDetails(project_id) {
         });
         //get project status
         /*
-<<<<<<< HEAD
          $.ajax({
          type: 'GET',
          // async: 'false',
@@ -1588,31 +1557,6 @@ function requestProjectDetails(project_id) {
         //request machine list
         $.ajax({
             type: 'GET',
-=======
-        $.ajax({
-            type: 'GET',
-           // async: 'false',
-          //  timeout: 5000,
-            data: {oper: 'getProjectStatus', projectId: project_id, id: currentuser},
-            url: 'php/api.php',
-            dataType: 'json',
-            success: function(data) {
-                if (data['http']['http_message'].toString() != "OK") {
-                    $("#detaillog").append("<p>Cannot get project status.\n</p>");
-                }
-                else
-                    document.getElementById("ProjectStatus").value = checkJSON(data['data']["projectStatus"]);
-            },
-            error: function() {
-                // TODO: how to get more information here? Should have something 
-                // also written in the results.
-                $("#detaillog").append("<p>Cannot get project status.\n</p>");
-            }
-        });*/
-        //request machine list
-          $.ajax({
-            type: 'GET',
->>>>>>> 3e49d3f5cb911c6c1a63f6de86002f7edbbc0ae0
             //  async: 'false',
             //    timeout: 5000,
             data: {oper: 'getMachineList', projectId: project_id, id: currentuser},
@@ -1708,11 +1652,7 @@ function drawMachineRow(rowData) {
     if (rowData.MachineOS == "\"\"")
         row.append($("<td>" + "Not Applicable" + "</td></tr>"));
     else
-<<<<<<< HEAD
         row.append($("<td>" + rowData.MachineOS + "</td></tr>"));
-=======
-    row.append($("<td>" + rowData.MachineOS + "</td></tr>"));
->>>>>>> 3e49d3f5cb911c6c1a63f6de86002f7edbbc0ae0
 }
 
 /*function deleteEntry() {
@@ -1761,7 +1701,6 @@ function checkAddress(addr) {
 
 
 /*
-<<<<<<< HEAD
  function ChangeLeader() {
  
  var NewLeader = {};
@@ -1792,38 +1731,6 @@ function checkAddress(addr) {
  });
  }
  */
-=======
-function ChangeLeader() {
-
-    var NewLeader = {};
-    NewLeader["ProjectLeader"] = $("#Leader2").val();
-    var currentuser;
-    currentuser = $("#currentuser").html();
-    var projectid;
-    projectid = $("#projectid").html();
-    NewLeader = JSON.stringify(NewLeader);
-    $.ajax({
-        type: 'POST',
-     //   async: 'false',
-       // timeout: 5000,
-        data: {oper: 'updateProjectDetail', projectId: projectid, id: currentuser, projectFields: NewLeader},
-        dataType: 'json',
-        // contentType: 'application/json;charset=utf-8',
-        url: 'php/api.php',
-        success: function(data) {
-            alert("You have successfully submitted your change!")
-            // document.location.reload();
-            console.log(data);
-        },
-        error: function() {
-            // TODO: how to get more information here? Should have something 
-            // also written in the results.
-            alert('Didn\'t get data');
-        }
-    });
-}
-*/
->>>>>>> 3e49d3f5cb911c6c1a63f6de86002f7edbbc0ae0
 
 function  CheckOnProjectId() {
 
@@ -1876,13 +1783,8 @@ function getUserRole(currentuser) {
 
     $.ajax({
         type: 'GET',
-<<<<<<< HEAD
         //   async: 'false',
         //  timeout: 5000,
-=======
-     //   async: 'false',
-      //  timeout: 5000,
->>>>>>> 3e49d3f5cb911c6c1a63f6de86002f7edbbc0ae0
         data: {oper: 'getUserRoles', id: currentuser},
         dataType: 'json',
         // contentType: 'application/json;charset=utf-8',
@@ -1932,11 +1834,7 @@ function checkUserRoleforDeploy(currentuser) {
     $.ajax({
         type: 'GET',
         //async: 'false',
-<<<<<<< HEAD
         // timeout: 5000,
-=======
-       // timeout: 5000,
->>>>>>> 3e49d3f5cb911c6c1a63f6de86002f7edbbc0ae0
         data: {oper: 'getUserRoles', id: currentuser},
         dataType: 'json',
         // contentType: 'application/json;charset=utf-8',
@@ -1948,11 +1846,7 @@ function checkUserRoleforDeploy(currentuser) {
             else {
                 if (!checkForValue(data['data'], "Lab_Engineer")) {
                     showAlert(FUNCTION.USER_LOGIN, alertType.ERR, null);
-<<<<<<< HEAD
                     window.location.href = "index.php";
-=======
-                    window.location.href = "http://osrl-dev.us.oracle.com/SVL6.1/index.php";
->>>>>>> 3e49d3f5cb911c6c1a63f6de86002f7edbbc0ae0
                     //header("Location: http://osrl-dev.us.oracle.com/SVL6.1/index.php", false);
 
                 }
@@ -1972,13 +1866,8 @@ function checkUserRole() {
     currentuser = $("#currentuser").html();
     $.ajax({
         type: 'GET',
-<<<<<<< HEAD
         //   async: 'false',
         // timeout: 5000,
-=======
-     //   async: 'false',
-       // timeout: 5000,
->>>>>>> 3e49d3f5cb911c6c1a63f6de86002f7edbbc0ae0
         data: {oper: 'getUserRoles', id: currentuser},
         dataType: 'json',
         // contentType: 'application/json;charset=utf-8',
@@ -1990,11 +1879,7 @@ function checkUserRole() {
             else {
                 if (!checkForValue(data['data'], "Lab_Engineer")) {
                     showAlert(FUNCTION.USER_LOGIN, alertType.ERR, null);
-<<<<<<< HEAD
                     //window.location.href = "index.php";
-=======
-                    window.location.href = "http://osrl-dev.us.oracle.com/SVL6.1/index.php";
->>>>>>> 3e49d3f5cb911c6c1a63f6de86002f7edbbc0ae0
                     //header("Location: http://osrl-dev.us.oracle.com/SVL6.1/index.php", false);
 
                 }
@@ -2061,7 +1946,6 @@ function refresh() {
         alert(" Cannot recognize the twiki URL provided! Please double check again.");
     }
     else {
-<<<<<<< HEAD
         $.ajax({
             type: 'POST',
             url: 'php/fetchTwiki.php',
@@ -2091,37 +1975,6 @@ function refresh() {
 function requestTwikiSuccess(instances) {
     checkChange(document.getElementById("ProjectName"), JSON.parse(instances)["Project Name"].replace("?                                              ", "").replace("?", ""));
     checkChange(document.getElementById("ProjectDescription"), JSON.parse(instances)["Project Description"].replace("?                                              ", "").replace("?", ""));
-=======
-    $.ajax({
-        type: 'POST',
-        url: 'php/fetchTwiki.php',
-        data: ({Twiki: twiki}),
-        async: true,
-        cache: false,
-        beforeSend: function(xhr) {
-        },
-        success: function(instances) {
-            requestTwikiSuccess(instances);
-            showAlert(FUNCTION.PROJECT_REFRESH, alertType.SPLASH, null);
-            setTimeout(function() {
-                    updateMachines();
-                    updateStatus("deployed");
-            }, 3000);
-        },
-        error: function(xhr, status, error) {
-            $("#refreshlog").append("<p>Cannot communicate with Twiki.\n</p>");
-        },
-        complete: function(xhr, status) {
-
-        }
-    });
-}
-}
-
-function requestTwikiSuccess(instances) {
-    checkChange(document.getElementById("ProjectName"), JSON.parse(instances)["Project Name"].replace("?                                              ","").replace("?", ""));
-    checkChange(document.getElementById("ProjectDescription"), JSON.parse(instances)["Project Description"].replace("?                                              ","").replace("?", ""));
->>>>>>> 3e49d3f5cb911c6c1a63f6de86002f7edbbc0ae0
     checkChange(document.getElementById("ProjectType"), JSON.parse(instances)["Project Type"]);
     checkChange(document.getElementById("LabtoolProjectId"), JSON.parse(instances)["ISVe Lab ID"]);
 
@@ -2169,11 +2022,8 @@ function requestUserandMachine(labID) {
             var status = data['data'][0]["PROJECTSTATUS"].toString();
             checkChangeDate(document.getElementById("ProjectStartDate"), startdate);
             checkChangeDate(document.getElementById("ProjectEndDate"), enddate);
-<<<<<<< HEAD
             if (status == "Closed")
                 status = "deactivated";
-=======
->>>>>>> 3e49d3f5cb911c6c1a63f6de86002f7edbbc0ae0
             document.getElementById("ProjectStatus").value = status;
             var labnote = data['data'][0]['LABNOTE'].toString();
             var str = labnote.split("\n");
@@ -2211,11 +2061,7 @@ function requestUserandMachine(labID) {
                                 checkChange(document.getElementById("ProjectLeader"), val['EMAIL'].toString());
                             }
                         })
-<<<<<<< HEAD
 
-=======
-    
->>>>>>> 3e49d3f5cb911c6c1a63f6de86002f7edbbc0ae0
                     }
 
 
@@ -2262,7 +2108,6 @@ function requestUserandMachine(labID) {
      complete: function(xhr, status) {
      }
      });
-<<<<<<< HEAD
      $.ajax({
      type: 'POST',
      url: 'php/getLabtoolEntryLeader.php',
@@ -2313,58 +2158,6 @@ function requestUserandMachine(labID) {
      },
      complete: function(xhr, status) {
      }
-=======
-    $.ajax({
-        type: 'POST',
-        url: 'php/getLabtoolEntryLeader.php',
-        data: ({LabID: labID}),
-        async: true,
-        cache: false,
-        beforeSend: function(xhr) {
-        },
-        success: function(data) {
-            var str = data.split("\n")
-            if (str.length != 2)
-                $("#refreshlog").append("<p>Didn't get the project leader info.\n</p>");
-            else {
-                checkChange(document.getElementById("ProjectLeader"), str[0]);
-                //document.getElementById("ProjectLeader").value = str[0];
-
-            }
-
-        },
-        error: function(xhr, status, error) {
-            $("#refreshlog").append("<p>Didn't get the project leader info.\n</p>");
-        },
-        complete: function(xhr, status) {
-        }
-    });
-    $.ajax({
-        type: 'POST',
-        url: 'php/getLabtoolEntry.php',
-        data: ({LabID: labID}),
-        async: true,
-        cache: false,
-        beforeSend: function(xhr) {
-        },
-        success: function(data) {
-            str = data.split("\n")
-            if (str.length != 3)
-                $("#refreshlog").append("<p>Didn't get the Start Date and End Date of this project.\n</p>");
-            else {
-                checkChangeDate(document.getElementById("ProjectStartDate"), str[0]);
-                checkChangeDate(document.getElementById("ProjectEndDate"), str[1]);
-                // document.getElementById("ProjectStartDate").value = convertDateFromText(str[0]);
-                // document.getElementById("ProjectEndDate").value = convertDateFromText(str[1]);
-            }
-
-        },
-        error: function(xhr, status, error) {
-            $("#refreshlog").append("<p>Didn't get the Start Date and End Date of this project.\n</p>");
-        },
-        complete: function(xhr, status) {
-        }
->>>>>>> 3e49d3f5cb911c6c1a63f6de86002f7edbbc0ae0
      });*/
     $.ajax({
         type: 'GET',

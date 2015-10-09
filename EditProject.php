@@ -15,11 +15,7 @@ if (!validateUser()) {
     }
     exit();
 }
-<<<<<<< HEAD
 if ($_SESSION['email'] == null) {
-=======
-if ($_SESSION['usr'] == null) {
->>>>>>> 3e49d3f5cb911c6c1a63f6de86002f7edbbc0ae0
 
     header("Location:Expire.php", false);
 }
@@ -400,11 +396,7 @@ if (isset($_GET['logoff'])) {
 
             <div id="footer">
                 <p>&nbsp;</p>
-<<<<<<< HEAD
                 <div id="currentuser" style="display:none;"><?php echo $_SESSION['email']; ?></div>
-=======
-                <div id="currentuser" style="display:none;"><?php echo $_SESSION['usr']; ?></div>
->>>>>>> 3e49d3f5cb911c6c1a63f6de86002f7edbbc0ae0
                 <div id="projectid" style="display:none;"><?php echo isset($_GET['id']) ? ($_GET['id']) : (null) ?></div>
                 <div id="projecttype" style="display:none;"><?php echo $_GET['projecttype'] ?></div>
                 <div id="refreshlog" style="display:none;"></div>

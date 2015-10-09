@@ -15,11 +15,7 @@ session_start();
 //}
 //exit();
 //} 
-<<<<<<< HEAD
 if ($_SESSION['email'] == null) {
-=======
-if ($_SESSION['usr'] == null) {
->>>>>>> 3e49d3f5cb911c6c1a63f6de86002f7edbbc0ae0
 
     header("Location: Expire.php", false);
 }
@@ -88,11 +84,7 @@ if (isset($_GET['logoff'])) {
                 <img src="_image/OSRL_logo.png" width="265" height="15"
                      alt="Oracle ISVe Labs Projects" />
                 <h4>
-<<<<<<< HEAD
                     Welcome <font style="font-weight: bold<?php echo substr($_SESSION['email'], 0, strpos($_SESSION['email'], '@')); ?>
-=======
-                    Welcome <font style="font-weight: bold;"><?php echo $_SESSION['usr']; ?>
->>>>>>> 3e49d3f5cb911c6c1a63f6de86002f7edbbc0ae0
                     </font>&nbsp;&nbsp;&nbsp;&nbsp; <a class="settings"
                                                        href="javascript:main()"> Home </a> <span class="main"> Home </span><a class="createProject" href="javascript:main()"> Home </a><a class="details" href="javascript:main()"> Home </a><a class="edit" href="javascript:main()"> Home </a><a class="initialDeploy" href="javascript:main()"> Home </a>|
                     <a class="main" name="ChangeRols" href="javascript:settings()">Change Roles</a> <span
@@ -183,15 +175,9 @@ if (isset($_GET['logoff'])) {
                         <div id="alert-desc2" class="alert-desc" style="display:none">
                             <a href="CRAdmin.php">Lab Engineer</a>
                         </div>
-<<<<<<< HEAD
                         <!--<div id="alert-desc3" class="alert-desc" style="display:none">
                             <a href="../../RAL-User/SVL6.1/EndUser.php">End User</a>
                         </div>-->
-=======
-                        <div id="alert-desc3" class="alert-desc" style="display:none">
-                            <a href="../../RAL-User/SVL6.1/EndUser.php">End User</a>
-                        </div>
->>>>>>> 3e49d3f5cb911c6c1a63f6de86002f7edbbc0ae0
                         <div id="alert-desc4" class="alert-desc" style="display:none">
                             <a href="ProjectAdmin.php">ISVe Project Admin</a>
                         </div>
@@ -535,11 +521,7 @@ if (isset($_GET['logoff'])) {
 
             <div id="footer">
                 <p>&nbsp;</p>
-<<<<<<< HEAD
                 <div id="currentuser" style="display:none;"><?php echo $_SESSION['email']; ?></div>
-=======
-                <div id="currentuser" style="display:none;"><?php echo $_SESSION['usr']; ?></div>
->>>>>>> 3e49d3f5cb911c6c1a63f6de86002f7edbbc0ae0
                 <div id="projectid" style="display:none;"><?php echo $_SESSION['id']; ?></div>
                 <input id="instancestatus" style="display:none;"></input>
             </div>
