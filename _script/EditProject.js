@@ -363,7 +363,11 @@ function checkUserRole(currentuser) {
 
             if (!checkForValue(data['data'], "ISVe_Project_Admin")) {
                 alert("Sorry, you do not have the access to Project Admin's page. Please go back and check the URL!");
+<<<<<<< HEAD
                 window.location.href = "index.php";
+=======
+                window.location.href = "http://osrl-dev.us.oracle.com/SVL6.1/index.php";
+>>>>>>> 3e49d3f5cb911c6c1a63f6de86002f7edbbc0ae0
                 //header("Location: http://osrl-dev.us.oracle.com/SVL6.1/index.php", false);
             }
             else
@@ -1632,7 +1636,11 @@ function refresh() {
                 setTimeout(function() {
 
                     updateMachines();
+<<<<<<< HEAD
                     updateStatus(document.getElementById("ProjectStatus").value);
+=======
+                    updateStatus("deployed");
+>>>>>>> 3e49d3f5cb911c6c1a63f6de86002f7edbbc0ae0
                 }, 3000);
             },
             error: function(xhr, status, error) {
@@ -1695,9 +1703,12 @@ function requestUserandMachine(labID) {
             var status = data['data'][0]["PROJECTSTATUS"].toString();
             checkChangeDate(document.getElementById("ProjectStartDate"), startdate);
             checkChangeDate(document.getElementById("ProjectEndDate"), enddate);
+<<<<<<< HEAD
             if (status=="Closed")
                 status = "deactivated";
 
+=======
+>>>>>>> 3e49d3f5cb911c6c1a63f6de86002f7edbbc0ae0
             document.getElementById("ProjectStatus").value = status;
             var labnote = data['data'][0]['LABNOTE'].toString();
             var str = labnote.split("\n");

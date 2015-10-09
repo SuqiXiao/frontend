@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 var roles = new Array();
 
+=======
+
+var roles = new Array();
+>>>>>>> 3e49d3f5cb911c6c1a63f6de86002f7edbbc0ae0
 function requestPasswordVerification() {
     var pass1 = $('#password1').val();
     var pass2 = $('#password2').val();
@@ -21,7 +26,11 @@ function requestPasswordVerification() {
                     var msg = results[result];
                     $('div.err').append(msg + '<br\>');
                 }
+<<<<<<< HEAD
 
+=======
+                
+>>>>>>> 3e49d3f5cb911c6c1a63f6de86002f7edbbc0ae0
             }
         },
         error: function(xhr, status, error) {
@@ -97,6 +106,7 @@ function main() {
 
 //retrieve the role of a specific user
 function RetrieveRole() {
+<<<<<<< HEAD
 
 
     $('#MA').prop('checked', false);
@@ -105,6 +115,14 @@ function RetrieveRole() {
     $('#EU').prop('checked', false);
     $('#LE').prop('checked', false);
 
+=======
+     $('#MA').prop('checked', false);
+      $('#IA').prop('checked', false);
+      $('#CR').prop('checked', false);
+       $('#EU').prop('checked', false);
+        $('#LE').prop('checked', false);
+      
+>>>>>>> 3e49d3f5cb911c6c1a63f6de86002f7edbbc0ae0
     var user = $("#RetrievePara").val();
     var admin = $("#currentuser").html();
     //alert(admin);
@@ -115,8 +133,13 @@ function RetrieveRole() {
     else {
         $.ajax({
             type: 'GET',
+<<<<<<< HEAD
             // async: 'false',
             //  timeout: 5000,
+=======
+           // async: 'false',
+          //  timeout: 5000,
+>>>>>>> 3e49d3f5cb911c6c1a63f6de86002f7edbbc0ae0
             //data: {oper: 'getUserRoles', id: user},
             data: {oper: 'getCurrentRoles', id: admin, user: user},
             dataType: 'json',
@@ -167,8 +190,13 @@ function getUserRole(currentuser) {
 
     $.ajax({
         type: 'GET',
+<<<<<<< HEAD
         // async: 'false',
         // timeout: 5000,
+=======
+       // async: 'false',
+       // timeout: 5000,
+>>>>>>> 3e49d3f5cb911c6c1a63f6de86002f7edbbc0ae0
         data: {oper: 'getUserRoles', id: currentuser},
         dataType: 'json',
         // contentType: 'application/json;charset=utf-8',
@@ -224,8 +252,13 @@ function checkUserRole(currentuser) {
     currentuser = $("#currentuser").html();
     $.ajax({
         type: 'GET',
+<<<<<<< HEAD
         //  async: 'false',
         // timeout: 5000,
+=======
+      //  async: 'false',
+       // timeout: 5000,
+>>>>>>> 3e49d3f5cb911c6c1a63f6de86002f7edbbc0ae0
         data: {oper: 'getUserRoles', id: currentuser},
         dataType: 'json',
         // contentType: 'application/json;charset=utf-8',
@@ -234,10 +267,17 @@ function checkUserRole(currentuser) {
 
             if (!checkForValue(data['data'], "Tool_Admin")) {
                 alert("Sorry, you do not have the access to Tool Admin's page. Please go back and check the URL!");
+<<<<<<< HEAD
                 window.location.href = "index.php";
                 //header("Location: http://osrl-dev.us.oracle.com/SVL6.1/index.php", false);
             }
 
+=======
+                window.location.href = "http://osrl-dev.us.oracle.com/RAL-Admin/SVL6.1/index.php";
+                //header("Location: http://osrl-dev.us.oracle.com/SVL6.1/index.php", false);
+            }
+         
+>>>>>>> 3e49d3f5cb911c6c1a63f6de86002f7edbbc0ae0
 
         },
         error: function() {
@@ -329,23 +369,35 @@ function Save() {
     remove = remove.concat('}');
     add = add.concat('}');
     if (!(removeindex == 0 && addindex == 0)) {
+<<<<<<< HEAD
         // alert(removeindex);
         // alert(removeindex);
+=======
+       // alert(removeindex);
+          // alert(removeindex);
+>>>>>>> 3e49d3f5cb911c6c1a63f6de86002f7edbbc0ae0
         var r = confirm("Are you sure you want to make the changes?");
         if (r) {
             if (removeindex != 0) {
                 $.ajax({
                     type: 'POST',
+<<<<<<< HEAD
                     // timeout: 5000,
+=======
+                   // timeout: 5000,
+>>>>>>> 3e49d3f5cb911c6c1a63f6de86002f7edbbc0ae0
                     data: {oper: 'removeUserRoles', id: admin, user: user, roles: remove},
                     dataType: 'json',
                     url: 'php/api.php',
                     success: function(data) {
+<<<<<<< HEAD
                         $('input:checkbox').removeAttr('checked');
                         $('#RetrievePara').val("");
                         while (roles.length > 0) {
                             roles.pop();
                         }
+=======
+>>>>>>> 3e49d3f5cb911c6c1a63f6de86002f7edbbc0ae0
                         alert("You have successfully updated the changes.");
                     }
                 });
@@ -353,16 +405,23 @@ function Save() {
             if (addindex != 0) {
                 $.ajax({
                     type: 'POST',
+<<<<<<< HEAD
                     // timeout: 5000,
+=======
+                   // timeout: 5000,
+>>>>>>> 3e49d3f5cb911c6c1a63f6de86002f7edbbc0ae0
                     data: {oper: 'addUserRoles', id: admin, user: user, roles: add},
                     dataType: 'json',
                     url: 'php/api.php',
                     success: function(data) {
+<<<<<<< HEAD
                         while (roles.length > 0) {
                             roles.pop();
                         }
                         $('input:checkbox').removeAttr('checked');
                         $('#RetrievePara').val("");
+=======
+>>>>>>> 3e49d3f5cb911c6c1a63f6de86002f7edbbc0ae0
                         alert("You have successfully updated the changes.");
                     }
                 });

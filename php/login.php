@@ -6,7 +6,11 @@ include_once "$ROOT/core/mysql.php";
 include_once "$ROOT/php/fetchSK.php";
 
 //define("RAL_DB_HOST","osrl-db-dev");
+<<<<<<< HEAD
 //define("RAL_DB_USER","osrl_ui2");
+=======
+// define("RAL_DB_USER","osrl_ui2");
+>>>>>>> 3e49d3f5cb911c6c1a63f6de86002f7edbbc0ae0
 //define("RAL_DB_PWD","vlab");
 //define("RAL_DB_DATABASE","ui_db2"); 
 function usernameTaken($username) {
@@ -167,6 +171,7 @@ function validateCurrentUserOrRegister() {
     $msg = "Inside validatecurrentUserOrRegister()";
     log_msg($email, $msg, 3, pathinfo($_SERVER['PHP_SELF'], PATHINFO_BASENAME));
     $usr = isValidUser($email);
+<<<<<<< HEAD
     //echo '<pre>' . print_r($usr, TRUE) . '</pre>';
     set_session($usr, $email);
     return true;
@@ -177,6 +182,19 @@ function validateCurrentUserOrRegister() {
    
     $msg = "Is authorized? " . $status;
    // echo '<pre>' . print_r($status, TRUE) . '</pre>';
+=======
+    echo '<pre>' . print_r($usr, TRUE) . '</pre>';
+    if (($usr) != null) {
+
+        set_session($usr, $email);
+        return true;
+    }
+
+    $msg = "User not present in UserTable - new user needs to be created for " . $email;
+    log_msg($email, $msg, 3, pathinfo($_SERVER['PHP_SELF'], PATHINFO_BASENAME));
+    $status = isAuthorized($email);
+    $msg = "Is authorized? " . $status;
+>>>>>>> 3e49d3f5cb911c6c1a63f6de86002f7edbbc0ae0
     log_msg($email, $msg, 3, pathinfo($_SERVER['PHP_SELF'], PATHINFO_BASENAME));
     if ($status == false) {
         header('Location: ./unauthorized.html');
@@ -184,12 +202,20 @@ function validateCurrentUserOrRegister() {
     } else {
         if ($status === "Unregistered")
         // Send User to register page
+<<<<<<< HEAD
             header('Location: ./unauthorized.html');
+=======
+            header('Location: ./register.php');
+>>>>>>> 3e49d3f5cb911c6c1a63f6de86002f7edbbc0ae0
         if (($status === "Disabled") || ($status === "Expired") || ($status === "Deleted"))
         // Send User to unauthorized page
             header('Location: ./unauthorized.html');
         return false;
+<<<<<<< HEAD
     }*/
+=======
+    }
+>>>>>>> 3e49d3f5cb911c6c1a63f6de86002f7edbbc0ae0
 }
 
 function set_session($username, $email) {

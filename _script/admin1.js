@@ -1893,7 +1893,11 @@ function checkUserRole() {
             else {
                 if (!checkForValue(data['data'], "ISVe_Project_Admin")) {
                     showAlert(FUNCTION.USER_LOGIN, alertType.ERR, null);
+<<<<<<< HEAD
                     //window.location.href = "index.php";
+=======
+                    window.location.href = "http://osrl-dev.us.oracle.com/SVL6.1/index.php";
+>>>>>>> 3e49d3f5cb911c6c1a63f6de86002f7edbbc0ae0
                     //header("Location: http://osrl-dev.us.oracle.com/SVL6.1/index.php", false);
                 }
                 else {

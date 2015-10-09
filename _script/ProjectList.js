@@ -2616,7 +2616,11 @@ function checkUserRole(currentuser) {
 
             if (!checkForValue(data['data'], "ISVe_Project_Admin")) {
                 alert("Sorry, you do not have the access to Project Admin's page. Please go back and check the URL!");
+<<<<<<< HEAD
                 window.location.href = "index.php";
+=======
+                window.location.href = "http://osrl-dev.us.oracle.com/SVL6.1/index.php";
+>>>>>>> 3e49d3f5cb911c6c1a63f6de86002f7edbbc0ae0
                 //header("Location: http://osrl-dev.us.oracle.com/SVL6.1/index.php", false);
             }
 
@@ -2650,7 +2654,11 @@ function checkUserRoleforCreateProject() {
 
                 if (!checkForValue(data['data'], "End_User")) {
                     showAlert(FUNCTION.USER_LOGIN, alertType.ERR, null);
+<<<<<<< HEAD
                     window.location.href = "index.php";
+=======
+                    window.location.href = "http://osrl-dev.us.oracle.com/SVL6.1/index.php";
+>>>>>>> 3e49d3f5cb911c6c1a63f6de86002f7edbbc0ae0
                     //header("Location: http://osrl-dev.us.oracle.com/SVL6.1/index.php", false);
                 }
 

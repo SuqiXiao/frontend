@@ -11,7 +11,15 @@ function getUserRole(currentuser) {
         url: 'php/api.php',
         success: function(data) {
             var i = 0;
+<<<<<<< HEAD
        
+=======
+            if (checkForValue(data['data'], "End_User")) {
+                $("#alert-desc3").show();
+                $("#alert-desc3>a").addClass("gohref");
+                i++;
+            }
+>>>>>>> 3e49d3f5cb911c6c1a63f6de86002f7edbbc0ae0
             if (checkForValue(data['data'], "ISVe_Project_Admin")) {
                 $("#alert-desc4").show();
                  $("#alert-desc4>a").addClass("gohref");
@@ -27,7 +35,10 @@ function getUserRole(currentuser) {
                  $("#alert-desc5>a").addClass("gohref");
                 i++;
             }
+<<<<<<< HEAD
             
+=======
+>>>>>>> 3e49d3f5cb911c6c1a63f6de86002f7edbbc0ae0
             if (i==0)
             {
               window.location = "../SVL6.1/accountUnavailable.html";
