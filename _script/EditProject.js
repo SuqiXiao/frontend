@@ -364,7 +364,7 @@ function checkUserRole(currentuser) {
             if (!checkForValue(data['data'], "ISVe_Project_Admin")) {
                 alert("Sorry, you do not have the access to Project Admin's page. Please go back and check the URL!");
                 window.location.href = "index.php";
-                //header("Location: http://osrl-dev.us.oracle.com/SVL6.1/index.php", false);
+                
             }
             else
                 requestProjectDetails();
@@ -457,13 +457,13 @@ function requestFileUpload() {
 }
 
 function requestProgress() {
-    progress = window.open("https://osrl-sgd-gtw-dev.us.oracle.com/sgd/progress", "progress", "width=500, height=40");
+    progress = window.open("", "progress", "width=500, height=40");
     progressInterval = setInterval(updateProgress, 1000);
 }
 
 function updateProgress() {
     if (!progress.closed) {
-        progress = window.open("https://osrl-sgd-gtw-dev.us.oracle.com/sgd/progress", "progress", "width=500, height=40");
+        progress = window.open("", "progress", "width=500, height=40");
     } else {
         clearProgress();
     }
@@ -701,7 +701,7 @@ function requestClear(ip) {
 
 function requestSGDSession(func, user, ip) {
     var command = func.text;
-    var url = "https://osrl-sgd-gtw-dev.us.oracle.com/sgd/runapp.jsp?" +
+    var url = "" +
             "u=" + user + "&i=" + ip + "&o=" + command;
     $('#sgd').attr("src", url);
 }
@@ -1077,7 +1077,7 @@ function requestProjectDetails() {
     if (project_id == "" || project_id == null)
     {
         alert("You cannot see the project details without selecting a project. Please go back and choose a project ID.");
-        window.location.href = "http://osrl-dev.us.oracle.com/SVL6.1/admin1.php";
+        window.location.href = "";
     }
     else {
         $.ajax({
@@ -1546,7 +1546,7 @@ function deleteUserFromProject(user) {
  type: 'POST',
  async: 'false',
  timeout: 5000,
- data: {oper: 'addMachineToProject', projectId: 266, id: "muriel.rambeloarison@oracle.com", machineId: machine_id},
+ data: {oper: 'addMachineToProject', projectId: 266, id: "", machineId: machine_id},
  //data: {oper: 'addMachineToProject', projectId: project_id, id: admin_email, machineId: machine_id},
  dataType: 'json',
  // contentType: 'application/json;charset=utf-8',
@@ -1602,6 +1602,7 @@ function AddUserToProject(user_email) {
             $("#refreshlog").append("<p>Adding user " + user_email + " failed.\n</p>");
         }
     });
+    
 }
 function Cancel() {
     var r = confirm("Are you sure you want to disgard all the changes?");
@@ -2026,13 +2027,13 @@ function hrefTwiki() {
     //set the href to twiki in the sidebar
     twiki = $("#PId").val();
     if (twiki == "" || twiki == null)
-        window.open("http://twiki.us.oracle.com/");
+        window.open("");
     else {
         try {
             window.open(twiki.replace(" ", ""));
         }
         catch (err) {
-            window.open("http://twiki.us.oracle.com/");
+            window.open("");
         }
     }
 }
@@ -2042,13 +2043,13 @@ function hrefLabtool() {
     //set the href to latool in the sidebar
     labtool = $("#LabtoolProjectId").html();
     if (labtool == "" || labtool == null)
-        window.open("http://twiki.us.oracle.com/");
+        window.open("");
     else {
         try {
-            window.open('http://isvelabtool.us.oracle.com/project/mdeupdate.jsp?pid=' + labtool);
+            window.open();
         }
         catch (err) {
-            window.open("http://twiki.us.oracle.com/");
+            window.open();
         }
     }
 }
