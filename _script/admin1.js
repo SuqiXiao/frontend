@@ -743,7 +743,7 @@ function getInstanceDOM(instance) {
     if (Eid != null && Eid != "" && Eid != "undefined") {
 
         cellExternalID.innerHTML = Eid;
-        cellExternalID.setAttribute('onclick', "window.open('http://isvelabtool.us.oracle.com/project/mdeupdate.jsp?pid=' +this.innerHTML);");
+        cellExternalID.setAttribute('onclick', "window.open('?pid=' +this.innerHTML);")
         cellExternalID.style.color = "#004D86";
     }
     else
@@ -1345,7 +1345,7 @@ function showDeletionSplash() {
  async: 'false',
  timeout: 5000,
  //data: {oper: 'getMachineList', projectId: projectid, id: currentuser},
- data: {oper: 'getMachineList', projectId: 266, id: "muriel.rambeloarison@oracle.com"},
+ data: {oper: 'getMachineList', projectId: 266, id: ""},
  dataType: 'json',
  // contentType: 'application/json;charset=utf-8',
  url: 'php/machines.php',
@@ -1686,7 +1686,7 @@ function showDeletionSplash() {
  type: 'POST',
  async: 'false',
  timeout: 5000,
- data: {oper: 'addMachineToProject', projectId: 266, id: "muriel.rambeloarison@oracle.com", machineId: machine_id},
+ data: {oper: 'addMachineToProject', projectId: 266, id: "", machineId: machine_id},
  //data: {oper: 'addMachineToProject', projectId: project_id, id: admin_email, machineId: machine_id},
  dataType: 'json',
  // contentType: 'application/json;charset=utf-8',
@@ -1894,7 +1894,7 @@ function checkUserRole() {
                 if (!checkForValue(data['data'], "ISVe_Project_Admin")) {
                     showAlert(FUNCTION.USER_LOGIN, alertType.ERR, null);
                     //window.location.href = "index.php";
-                    //header("Location: http://osrl-dev.us.oracle.com/SVL6.1/index.php", false);
+                    
                 }
                 else {
                     var i = 0;
